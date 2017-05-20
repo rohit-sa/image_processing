@@ -1,0 +1,5 @@
+import os
+
+training_data = [filename for filename in os.listdir(os.cwd()) if filename.startswith("data")]
+print(training_data);
+#file_handle = open(

@@ -1,0 +1,15 @@
+CC=g++
+CFLAGS= -std=c++11 -Wall -o "%e" "%f" `pkg-config opencv --cflags --libs`
+LDFLAGS=
+SOURCES=comp_label.cpp feature.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=hello
+
+all: $(SOURCES) $(EXECUTABLE)
+    
+$(EXECUTABLE): $(OBJECTS) 
+    $(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.cpp.o:
+    $(CC) $(CFLAGS) $< -o $@
+
